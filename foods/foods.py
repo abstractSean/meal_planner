@@ -51,7 +51,7 @@ class Food:
         self.pairings = pairings
         self.perishable = perishable
         self.preptime = preptime
-        self.price = price
+        #self.price = price
         self.unit = unit
         #self.unit_price = unit_price
         """
