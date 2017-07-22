@@ -53,19 +53,19 @@ class Food:
         self.preptime = preptime
         self.price = price
         self.unit = unit
-        self.unit_price = unit_price
-        
+        #self.unit_price = unit_price
+        """
         if self.unit_price == 0.0:
             self.calc_unit_price()
         if self.price == 0.0:
             self.calc_total_price()
-            
+        """    
     def __str__(self):
         return str(self.__dict__)
             
     def __repr__(self):
         return '{} object for "{}"'. format(type(self).__name__, self.name)
-
+    """
     def calc_unit_price(self):
         """Calculates unit_price = price / amount
         """
@@ -77,7 +77,29 @@ class Food:
         """
         self.price = self.amount * self.unit_price
         return self.price
+    """
+        
+    @property
+    def unit_price(self):
+        if self._unit_price == 0.0:
+            self._unit_price = self.price / self.amount
+        return self._unit_price
 
+    @unit_price.setter
+    def unit_price(self, value):
+        if self.price == 0.0:
+            self._unit_price = value
+            
+    @property
+    def price(self):
+        if self._price == 0.0:
+            self._price = self.amount * self.unit_price
+        return self._price
+
+    @price.setter
+    def price(self, value):
+        if self.price == 0.0:
+            self._price = value        
 
 def main():
     """Contains module specific script for temporary testing.
