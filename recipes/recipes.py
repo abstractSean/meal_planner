@@ -12,7 +12,13 @@ import sys
 #  add imported modules/functions from modules
 
 
-# insert function definitions here
+class Recipe:
+    """Temporary Recipe class
+    """
+    def __init__(self, name, category):
+        self.name = str(name)
+        self.category = category
+
 
 
 def main():
@@ -34,6 +40,6 @@ def main():
 
 
 if __name__ == '__main__':
-    main() 
+    main()
 else:
     print("Module Loaded message")
